@@ -1,4 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+:root {
+  --forest: #24352a;
+  --moss: #747b62;
+  --linen: #f7f4ec;
+  --ink: #18241c;
+  --clay: #b8784e;
+  --clay-dark: #9e603d;
+  --sage: #aeb59c;
+}
+
 * {
   font-family: "Lato", sans-serif;
   padding: 0;
@@ -7,7 +18,8 @@
 }
 
 body {
-  background-color: #848871;
+  background-color: var(--linen);
+  color: var(--ink);
 }
 
 html {
@@ -34,8 +46,18 @@ html {
   left: 0;
 }
 
-section:nth-child(even) {
-  background-color: white;
+#about-me,
+#projects {
+  background-color: var(--moss);
+}
+
+#languages {
+  background-color: var(--linen);
+}
+
+#about-me h1,
+#projects .section__title {
+  color: var(--linen);
 }
 
 h1,
@@ -66,7 +88,7 @@ i {
 }
 
 a:hover{
-  opacity: 0.7s;
+  opacity: 0.7;
 }
 
 li {
@@ -97,7 +119,7 @@ li {
 }
 
 .text__white {
-  color: whitesmoke;
+  color: var(--linen);
 }
 
 /* NAV BAR */
@@ -119,26 +141,28 @@ nav {
 
 .nav__link--anchor {
   margin: 0 12px;
-  color: black;
+  color: var(--linen);
   text-decoration: none;
   font-weight: 700;
 }
 
 .nav__link--anchor-primary {
-  background-color: whitesmoke;
+  background-color: var(--clay);
   padding: 8px 20px;
   border-radius: 50px;
-  color: black;
+  color: var(--linen);
+  box-shadow: 0 8px 20px rgba(24, 36, 28, 0.18);
+  transition: background-color 300ms ease, transform 300ms ease;
 }
 
 .nav__link--anchor-primary:hover {
-  background-color: #187411;
-  transition: all 0.3s ease-in-out;
+  background-color: var(--clay-dark);
+  transform: translateY(-1px);
 }
 
 .personal__logo {
   font-size: 24px;
-  color: whitesmoke;
+  color: var(--linen);
   margin: 0 12px;
   font-weight: bold;
 }
@@ -198,6 +222,7 @@ nav {
 
 .about-me__info--para {
   font-size: 20px;
+  color: var(--linen);
   margin-bottom: 28px;
    animation: fade-up 650ms 400ms backwards;
 }
@@ -209,7 +234,7 @@ nav {
 
 .about-me__link {
   font-size: 20px;
-  color: #242424;
+  color: var(--linen);
   text-decoration: none;
   padding: 0 8px;
    animation: fade-up 650ms 400ms backwards;
@@ -297,6 +322,15 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 25px 16px;
+  border: 1px solid var(--sage);
+  border-radius: 8px;
+  background-color: rgba(174, 181, 156, 0.12);
+  transition: background-color 300ms ease, box-shadow 300ms ease;
+}
+
+.language:hover .language__img--wrapper {
+  background-color: rgba(174, 181, 156, 0.28);
+  box-shadow: 0 10px 24px rgba(36, 53, 42, 0.12);
 }
 
 .language__list {
@@ -313,7 +347,7 @@ nav {
   transition: all 300ms;
   font-size: 20px;
   opacity: 0;
-  color: whitesmoke;
+  color: var(--forest);
 }
 
 .language:hover .language__name {
@@ -339,7 +373,7 @@ nav {
 .project__wrapper {
   position: relative;
   display: flex;
-  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 20px 80px rgba(36, 53, 42, 0.28);
   border-radius: 20px;
   overflow: hidden;
 }
@@ -351,7 +385,7 @@ nav {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: #1c1d25;
+  background-color: var(--forest);
   opacity: 0;
   transition: opacity 450ms ease;
   z-index: 2;
@@ -412,8 +446,8 @@ nav {
 
 /* FOOTER */
 
-.footer {
-  background-color: #242424;
+footer {
+  background-color: var(--forest);
 }
 
 .footer__logo--img {
@@ -440,7 +474,7 @@ nav {
 .footer__social--link,
 .footer__copyright,
 .footer__logo--popper {
-  color: white;
+  color: var(--linen);
 }
 
 .footer__logo--popper {
