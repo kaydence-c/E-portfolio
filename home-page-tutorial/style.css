@@ -10,8 +10,28 @@ body {
   background-color: #848871;
 }
 
-html{
+html {
   scroll-behavior: smooth;
+}
+
+.link__hover-effect {
+  position: relative;
+}
+
+.link__hover-effect:after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  background-color: white;
+  width: 0;
+  bottom: -3px;
+  right: 0;
+  transition: all 300ms ease;
+}
+
+.link__hover-effect:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 section:nth-child(even) {
@@ -39,8 +59,14 @@ p {
   font-size: 16px;
 }
 
-a{
+i {
   text-decoration: none;
+  position: relative;
+  transition: opacity 300ms ease;
+}
+
+a:hover{
+  opacity: 0.7s;
 }
 
 li {
@@ -67,6 +93,7 @@ li {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 12px;
 }
 
 .text__white {
@@ -83,6 +110,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 12px;
 }
 
 .nav__link--list {
@@ -144,6 +172,19 @@ nav {
   overflow: hidden;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
   margin-bottom: 28px;
+  animation: animate-profile-picture 800ms 200ms backwards;
+}
+
+@keyframes animate-profile-picture{
+  0%{
+    transform: scale(0);
+  }
+  80%{
+    transform: scale(1.1)
+  }
+  100%{
+    scale(1)
+  }
 }
 
 .about-me__picture {
@@ -158,10 +199,12 @@ nav {
 .about-me__info--para {
   font-size: 20px;
   margin-bottom: 28px;
+   animation: fade-up 650ms 400ms backwards;
 }
 
 .about-me__info--title {
   margin-bottom: 16px;
+  animation: fade-up 650ms 400ms backwards;
 }
 
 .about-me__link {
@@ -169,6 +212,22 @@ nav {
   color: #242424;
   text-decoration: none;
   padding: 0 8px;
+   animation: fade-up 650ms 400ms backwards;
+}
+
+.about-me__links{
+   animation: fade-up 650ms 400ms backwards;
+}
+
+@keyframes fade-up{
+  0%{
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .about-me__img--container {
@@ -182,6 +241,33 @@ nav {
   width: 50%;
   display: block;
   padding: 0 24px;
+  animation: fade-in 1200ms 800ms backwards;
+}
+
+.wave{
+  display: inline-block;
+  animation: animate-wave 500ms infinite ease-in-out;
+}
+
+@keyframes animate-wave {
+  0%{
+    transform: rotate(0);
+  }
+  50%{
+    transform: rotate(30deg);
+  }
+  100%{
+    transform: rotate(0);
+  }
+}
+
+@keyframes fade-in{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
 
 /* Tech Stack */
@@ -193,14 +279,13 @@ nav {
   background: none;
 }
 
-.language:hover .language__img{
+.language:hover .language__img {
   filter: brightness(80%);
   opacity: 0.86;
   transform: scale(0.9);
-
 }
 
-.language{
+.language {
   width: 25%;
   display: flex;
   justify-content: center;
@@ -212,16 +297,16 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 25px 16px;
-  
 }
 
-.language__list{
+.language__list {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
-.language__name{
+.language__name {
   position: absolute;
   bottom: 0;
   transform: scale(0);
@@ -231,35 +316,35 @@ nav {
   color: whitesmoke;
 }
 
-.language:hover .language__name{
+.language:hover .language__name {
   transform: scale(1);
   opacity: 1;
 }
 
 /* PROJECTS */
 
-.project{
+.project {
   margin-bottom: 135px;
 }
 
-.project:last-child{
+.project:last-child {
   margin-bottom: 40px;
 }
 
-.project__img{
+.project__img {
   width: 100%;
   transition: all 500ms ease;
 }
 
-.project__wrapper{
+.project__wrapper {
   position: relative;
   display: flex;
-  box-shadow: 0 20px 80px rgba(0,0,0,0.45);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.45);
   border-radius: 20px;
   overflow: hidden;
 }
 
-.project__wrapper:before{
+.project__wrapper:before {
   content: "";
   position: absolute;
   top: 0;
@@ -276,7 +361,7 @@ nav {
   opacity: 0.7;
 }
 
-.project:hover .project__img{
+.project:hover .project__img {
   transform: scale(1.07);
   filter: blur(5px);
 }
@@ -286,15 +371,15 @@ nav {
   transform: translateY(-50%);
 }
 
-.project__list{
+.project__list {
   padding-top: 40px;
 }
 
-.project:hover .project__description{
+.project:hover .project__description {
   opacity: 1;
 }
 
-.project__description{
+.project__description {
   position: absolute;
   top: 50%;
   left: 90px;
@@ -302,14 +387,16 @@ nav {
   max-width: 550px;
   z-index: 3;
   opacity: 0;
-  transition: transform 450ms, opacity 300ms;
+  transition:
+    transform 450ms,
+    opacity 300ms;
 }
 
-.project__description--para{
+.project__description--para {
   margin: 16px 0;
 }
 
-.project__description--link{
+.project__description--link {
   font-size: 20px;
   margin-right: 16px;
   text-decoration: none;
@@ -325,16 +412,16 @@ nav {
 
 /* FOOTER */
 
-.footer{
+.footer {
   background-color: #242424;
 }
 
-.footer__logo--img{
+.footer__logo--img {
   width: 70px;
   height: 70px;
 }
 
-.footer__row{
+.footer__row {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -342,7 +429,7 @@ nav {
   padding: 8% 0;
 }
 
-.footer__social--list{
+.footer__social--list {
   margin-bottom: 28px;
   width: 100%;
   max-width: 500px;
@@ -352,11 +439,11 @@ nav {
 
 .footer__social--link,
 .footer__copyright,
-.footer__logo--popper{
+.footer__logo--popper {
   color: white;
 }
 
-.footer__logo--popper{
+.footer__logo--popper {
   position: absolute;
   right: 0;
   top: 30px;
@@ -365,12 +452,73 @@ nav {
   transition: all 300ms ease;
 }
 
-.footer__anchor{
+.footer__anchor {
   position: relative;
   margin-bottom: 20px;
 }
 
-.footer__anchor:hover .footer__logo--popper{
+.footer__anchor:hover .footer__logo--popper {
   transform: translateX(60px);
   opacity: 1;
+}
+
+/* Small phones, tablets, large smartphones*/
+@media (max-width: 768px) {
+  nav {
+    height: 68px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .about-me__info--para {
+    font-size: 18px;
+  }
+
+  .language {
+    width: calc(100% / 3);
+  }
+
+  .project__description--para {
+    font-size: 14px;
+  }
+
+  .project__description {
+    padding-right: 30px;
+    left: 30px;
+  }
+}
+
+/* FOR SMALL PHONES */
+@media (max-width: 480px) {
+  .nav__link:not(:last-child) {
+    display: none;
+  }
+
+  .project__description {
+    padding: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .project__description--para {
+    display: none;
+  }
+
+  .project__description--links {
+    display: flex;
+    justify-content: center;
+  }
+
+  .project__description--title {
+    line-height: 1;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .project__description--sub-title {
+    text-align: center;
+    margin: 12px 0;
+  }
 }
